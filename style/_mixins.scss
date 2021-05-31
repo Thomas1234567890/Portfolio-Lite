@@ -1,0 +1,12 @@
+@mixin test() {
+  body {
+    background-color: black;
+  }
+}
+@mixin center_something($position) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
