@@ -1,7 +1,7 @@
 @use '_mixins' as m;
 @use '_variables' as *;
 @use '_color_text' as c;
-@use '_rain' as *;
+@use '_rain' as *; 
 
 .heading {
   margin: 5vh 0;
@@ -21,7 +21,7 @@
 
 .card_container {
   padding: 0;
-  z-index: 0;
+  z-index: 0; 
   margin: 20vh 0;
   font-family: verdana;
   display: flex;
@@ -68,7 +68,8 @@
 
 .card_banner_img {
   border-radius: 0.5rem 0.5rem 0 0;
-  max-width: 100%;
+  max-width: 15rem;
+  max-height:10rem;
   transition: 0.3s;
 }
 
