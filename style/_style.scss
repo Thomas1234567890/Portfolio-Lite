@@ -2,6 +2,7 @@
 @use '_variables' as *;
 @use '_color_text' as c;
 @use '_rain' as *;
+@use 'drop_down' as *;
 
 .heading {
   margin: 5vh 0;
@@ -22,13 +23,12 @@
 .card_container {
   padding: 0;
   z-index: 0;
-  margin: 20vh 0;
+  margin: 10vh 0;
   font-family: verdana;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid red;
   // @include m.center_something(absolute);
 }
 
@@ -71,7 +71,6 @@
   border-radius: 0.5rem 0.5rem 0 0;
   max-width: 15rem;
   max-height: 10rem;
-  // max-height:10rem;
   transition: 0.3s;
 }
 
@@ -89,12 +88,8 @@
   opacity: 0.5;
 }
 
-
-
-
 .card_info {
   padding: 0.5rem;
-  border:solid 1px red;
 }
 .card_info button {
   color: $white;
