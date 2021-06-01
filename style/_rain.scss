@@ -1,4 +1,5 @@
 /////////////////////////////////////////////////rain
+
 .rain {
   position: relative;
   left: 0;
@@ -67,7 +68,7 @@ body.back-row-toggle .rain.back-row {
     opacity: 1;
   }
   65% {
-    opacity: 1; 
+    opacity: 1;
   }
   75% {
     opacity: 0;
@@ -88,12 +89,11 @@ body.back-row-toggle .rain.back-row {
   }
 }
 .clouds {
-  margin: -5% 0;
+  position: relative;
+  margin: -10% 0;
   z-index: 4;
   transform: rotate(180deg);
   background: url(http://i.stack.imgur.com/iofJk.png) repeat-x 0 / 100% auto;
-  height: 5vh; /* this value is not important, just not zero */
+  height: 10%; /* this value is not important, just not zero */
   animation: animate_clouds 15s linear infinite;
 }
-
-
