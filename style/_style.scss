@@ -1,7 +1,7 @@
 @use '_mixins' as m;
 @use '_variables' as *;
 @use '_color_text' as c;
-// @use '_rain' as *;
+@use '_rain' as *;
 
 .heading {
   margin: 5vh 0;
@@ -20,14 +20,26 @@
 }
 
 .card_container {
-  font-family: verdana;
-  margin: 20vh 0;
   padding: 0;
   z-index: 0;
-  @include m.center_something(absolute);
+  margin: 20vh 0;
+  font-family: verdana;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid red;
+  // @include m.center_something(absolute);
+}
+
+@media screen and(min-width:1000px) {
+  .card_container {
+    flex-direction: row;
+  }
 }
 
 .card {
+  margin: 2vh 0;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -40,6 +52,17 @@
     // cursor: cell;
     -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
     filter: grayscale(0%);
+  }
+  animation: move_cards_into_focus 1s ease-in-out forwards;
+}
+
+@keyframes move_cards_into_focus {
+  0% {
+    margin: 2vh 0;
+  }
+
+  100% {
+    margin: 5vh 0;
   }
 }
 

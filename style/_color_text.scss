@@ -7,6 +7,16 @@
   background-repeat: repeat-x;
   animation: text_with_backgorund 15s linear infinite;
 }
+
+.weather_app_color_text {
+  color: rgba(255, 255, 255, 0.1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  // <span>Photo by <a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sharon McCutcheon</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+  background-image: url(https://images.unsplash.com/photo-1486546910464-ec8e45c4a137?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=651&q=80);
+  background-repeat: repeat-x;
+  animation: text_with_backgorund 35s linear infinite;
+}
 @keyframes text_with_backgorund {
   0% {
     background-position: 0 0;
