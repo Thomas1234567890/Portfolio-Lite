@@ -12,6 +12,7 @@ body {
   margin: 0;
   text-decoration: none;
   list-style: none;
+  font-size: 16px;
 }
 
 .heading {
@@ -32,30 +33,45 @@ body {
 
 .card_container {
   padding: 0;
+  margin: 0;
   z-index: 0;
-  margin: 10vh 0;
   font-family: verdana;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+  gap: $standard_spacing;
+  grid-template-areas:
+    'card_1'
+    'card_2'
+    'card_3'
+    'card_4';
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-evenly;
   // @include m.center_something(absolute);
 }
 
-@media screen and(min-width:1000px) {
+@media screen and (min-width: 600px) {
   .card_container {
-    flex-direction: row;
+    grid-template-areas:
+      'card_1 card_2'
+      'card_3 card_4';
+  }
+}
+
+////// more than 820px's
+@media screen and (min-width: 1000px) {
+  .card_container {
+    grid-template-areas: 'card_1 card_2 card_3 card_4';
   }
 }
 
 .card {
-  margin: 2vh 0;
+  margin: 1rem auto;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 15rem;
   height: 25rem;
-  border-radius: 0.5rem 0.5rem 0 0;
+  // border-radius: 0.5rem 0.5rem 0 0;
   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
   filter: grayscale(100%);
   &:hover {
@@ -69,11 +85,11 @@ body {
 
 @keyframes move_cards_into_focus {
   0% {
-    margin: 2vh 0;
+    margin: 1rem auto;
   }
 
   100% {
-    margin: 5vh 0;
+    margin: 2rem auto;
   }
 }
 
