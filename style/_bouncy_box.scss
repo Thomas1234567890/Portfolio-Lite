@@ -1,5 +1,6 @@
 $box_color: hsl(216, 100%, 50%, 0.5);
 $small_cube_color: hsl(0, 0%, 100%, 0.5);
+$ball_color: $box_color;
 
 $rotate_speed: 30s;
 $bounce_speed: 2s;
@@ -42,11 +43,12 @@ $box_size: 200px;
   position: relative;
   transform: scale(50%);
   transform-style: preserve-3d;
-  animation: scene_rotate $rotate_speed infinite linear;
+  // animation: scene_rotate $rotate_speed infinite linear;
 }
 
 @keyframes scene_rotate {
   to {
+    transform: scale(50%);
     transform: rotateY(360deg);
   }
 }
@@ -125,60 +127,119 @@ $box_size: 200px;
   }
 }
 
-// .small_cube {
-//   width: 1em;
-//   height: 1em;
-//   position: absolute;
-//   left: -0.5em;
+.small_cube {
+  // width: calc($box_size / 4);
+  // height: calc($box_size / 4);
+  // position: absolute;
+  // left: -0.5em;
+  // background-color: $small_cube_color;
+  // // box-shadow: 0 0 0.5em #000a inset;
+  // animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
 
-//   & .left,
-//   & .right,
-//   & .front,
-//   & .back,
-//   & .top {
-//     background-color: $small_cube_color;
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     // box-shadow: 0 0 0.5em #000a inset;
-//   }
+.smal_cube_front {
+  width: $box_size;
+  height: $box_size;
+  background-color: $box_color;
+  position: absolute;
+  bottom: -1em;
+  left: -1em;
+  // transform: translate3d();
+  transform: translateZ(0.5em);
+  animation: cube_animation $bounce_speed infinite ease-out;
+  // transform: translateZ(0.5em);
+  // width: calc($box_size / 4);
+  // height: calc($box_size / 4);
+  // position: absolute;
+  // left: -0.5em;
+  // background-color: $small_cube_color;
+  // // box-shadow: 0 0 0.5em #000a inset;
+  // animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
+.smal_cube_right {
+  transform: rotateY(90deg) translateZ(0.5em);
+  width: calc($box_size / 4);
+  height: calc($box_size / 4);
+  position: absolute;
+  left: -0.5em;
+  background-color: $small_cube_color;
+  // box-shadow: 0 0 0.5em #000a inset;
+  animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
+.smal_cube_left {
+  transform: rotateY(270deg) translateZ(0.5em);
+  width: calc($box_size / 4);
+  height: calc($box_size / 4);
+  position: absolute;
+  left: -0.5em;
+  background-color: $small_cube_color;
+  // box-shadow: 0 0 0.5em #000a inset;
+  animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
+.smal_cube_back {
+  transform: rotateY(180deg) translateZ(0.5em);
+  width: calc($box_size / 4);
+  height: calc($box_size / 4);
+  position: absolute;
+  left: -0.5em;
+  background-color: $small_cube_color;
+  // box-shadow: 0 0 0.5em #000a inset;
+  animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
 
-//   & .front {
-//     transform: translateZ(0.5em);
-//   }
-//   & .right {
-//     transform: rotateY(90deg) translateZ(0.5em);
-//   }
-//   & .left {
-//     transform: rotateY(270deg) translateZ(0.5em);
-//   }
-//   & .back {
-//     transform: rotateY(180deg) translateZ(0.5em);
-//   }
+.smal_cube_top {
+  opacity: 1;
+  transform: translateY(-50%) rotateX(90deg);
+  box-shadow: 0 0 0.5em #000a inset;
+  width: calc($box_size / 4);
+  height: calc($box_size / 4);
+  position: absolute;
+  left: -0.5em;
+  background-color: $small_cube_color;
+  // box-shadow: 0 0 0.5em #000a inset;
+  animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
 
-//   & .top {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     background-color: $small_cube_color;
-//     opacity: 1;
-//     transform: translateY(-50%) rotateX(90deg);
-//     box-shadow: 0 0 0.5em #000a inset;
-//   }
+.smal_cube_bottom {
+  transform: translateY(50%) rotateX(90deg);
+  bottom: 0;
+  // box-shadow: 0 0 0.5em #000a;
+  width: calc($box_size / 4);
+  height: calc($box_size / 4);
+  position: absolute;
+  left: -0.5em;
+  background-color: $small_cube_color;
+  // box-shadow: 0 0 0.5em #000a inset;
+  animation: small_cube_bounces $bounce_speed infinite ease-out;
+}
 
-//   & .bottom {
-//     position: absolute;
-//     width: 0.5em;
-//     height: 0.5em;
-//     // background-color: #0007;
-//     transform: translateY(50%) rotateX(90deg);
-//     bottom: 0;
-//     // box-shadow: 0 0 0.5em #000a;
-//   }
-//   animation: small_cube_bouncs $bounce_speed infinite ease-out;
-// }
+@keyframes small_cube_bounces {
+  0%,
+  100% {
+    bottom: 0.5em;
+  }
+  50% {
+    bottom: 3em;
+    animation-timing-function: ease-in;
+  }
+}
+.ball {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
 
-@keyframes small_cube_bouncs {
+  position: absolute;
+  left: -0.5em;
+  bottom: 1em;
+  background-color: $ball_color;
+  background-image: radial-gradient(circle at top, lightblue, 70%, #000);
+
+  // animation: ball_bounces $bounce_speed infinite ease-out,
+  //   scene_rotate $rotate_speed infinite linear reverse;
+  animation: ball_bounces $bounce_speed infinite ease-out;
+}
+
+@keyframes ball_bounces {
   0%,
   100% {
     bottom: 0.5em;
@@ -189,13 +250,14 @@ $box_size: 200px;
   }
 }
 
-// .ball_shadow {
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   background-image: radial-gradient(#0007, #0000 50%);
-//   animation: ball_shadow_animation $bounce_speed infinite ease-out;
-// }
+.ball_shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#0007, #0000 50%);
+  animation: ball_shadow_animation $bounce_speed infinite ease-out;
+}
+
 @keyframes ball_shadow_animation {
   0%,
   8%,
