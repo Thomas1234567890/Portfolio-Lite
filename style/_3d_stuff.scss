@@ -1,0 +1,57 @@
+:root {
+  --_3d_scene_animation_speed: 10s;
+  --_3d_internal_scene_rotation_speed: 10s;
+  --_3d_animation_delay: 1s;
+}
+
+._3d_cube {
+  margin: auto; //// keep blocks in the center
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg) rotateY(20deg) rotateZ(0deg);
+}
+._3d_side {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+
+  background: rgba(rgb(0, 0, 0), 0);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  color: white;
+  // text-align: center;
+  // line-height: 2rem;
+  &:hover {
+    background: rgba(rgb(0, 0, 0), 0.1);
+  }
+}
+
+._3d_front {
+  transform: translateZ(2rem);
+}
+._3d_top {
+  transform: rotateX(90deg) translateZ(2rem);
+}
+._3d_right {
+  transform: rotateY(90deg) translateZ(2rem);
+}
+._3d_left {
+  transform: rotateY(-90deg) translateZ(2rem);
+}
+._3d_bottom {
+  transform: rotateX(-90deg) translateZ(2rem);
+}
+._3d_back {
+  transform: rotateY(-180deg) translateZ(2rem);
+}
+
+._3d_scene {
+  // position: absolute;
+  transform-style: preserve-3d;
+  animation: _3d_scene_rotate var(--_3d_scene_animation_speed) infinite linear;
+}
+
+@keyframes _3d_scene_rotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}

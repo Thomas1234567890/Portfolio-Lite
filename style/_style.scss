@@ -4,6 +4,7 @@
 @use '_rain' as *;
 @use 'drop_down' as *;
 @use '_bouncy_box' as *;
+@use '_3d_stuff' as *;
 
 ///// normalize
 html,
@@ -42,7 +43,8 @@ body {
     'card_1'
     'card_2'
     'card_3'
-    'card_4';
+    'card_4'
+    'card_5';
   // flex-direction: column;
   // align-items: center;
   // justify-content: space-evenly;
@@ -53,14 +55,16 @@ body {
   .card_container {
     grid-template-areas:
       'card_1 card_2'
-      'card_3 card_4';
+      'card_3 card_4'
+      'card_5 card_5';
   }
 }
 
 ////// more than 820px's
 @media screen and (min-width: 1000px) {
   .card_container {
-    grid-template-areas: 'card_1 card_2 card_3 card_4';
+    grid-template-areas: 'card_1 card_2 card_3 card_4'
+    'card_5 card_5 card_5 card_5';
   }
 }
 
@@ -98,6 +102,17 @@ body {
   max-width: 15rem;
   max-height: 10rem;
   transition: 0.3s;
+}
+///// spcific
+.card_heading_3d_img_container {
+  margin: auto;
+  padding: 10%;
+}
+
+///// spcific
+.card_heading_text_container_3d div { 
+  font-size: 1.5rem;
+  padding-top: 4rem;
 }
 
 .content_container {
